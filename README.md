@@ -5,6 +5,7 @@
 - make a 3d representation of it, and animate the moves
 - make a layout for the application
 - make a solver for the cube and also use kociemba
+- make a scanner for the cube using the camera
 - make tests using a library
 
 ### HOW TO INSTALL:
