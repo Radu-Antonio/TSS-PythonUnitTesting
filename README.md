@@ -1,11 +1,12 @@
 # Testare Sisteme Software - Python Unit Testing
 
 ### TO DO:
-- make the cube object, implement moves on the cube
+- *maybe add wide moves/rotations/slice moves
+- to implement CFOP variation of the solver
+- to implement pattern solving
+- make a scanner for the cube using the camera
 - make a 3d representation of it, and animate the moves
 - make a layout for the application
-- make a solver for the cube and also use kociemba
-- make a scanner for the cube using the camera
 - make tests using a library
 
 ### HOW TO INSTALL:

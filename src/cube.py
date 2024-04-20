@@ -74,21 +74,27 @@ class Cube():
             replace_column(self.state['l'], 0, temp[::-1])
 
     def apply_moves(self, moves): 
-        # TODO: implement for all the moves and add rotations to the cube
+        # TODO: maybe implement wide moves / rotations / slice moves
         for move in moves.split():
-            if move == "U":
-                self.rotate_U_layer()
-            elif move == "U'":
-                self.rotate_U_layer(3)
-            elif move == "R":
-                self.rotate_R_layer()
-            elif move == "R'":
-                self.rotate_R_layer(3)
-            elif move == "F":
-                self.rotate_F_layer()
-            elif move == "F'":
-                self.rotate_F_layer(3)
-
+            match move:
+                case "U": self.rotate_U_layer()
+                case "U2": self.rotate_U_layer(2)
+                case "U'": self.rotate_U_layer(3)
+                case "D": self.rotate_D_layer()
+                case "D2": self.rotate_D_layer(2)
+                case "D'": self.rotate_D_layer(3)
+                case "F": self.rotate_F_layer()
+                case "F2": self.rotate_F_layer(2)
+                case "F'": self.rotate_F_layer(3)
+                case "B": self.rotate_B_layer()
+                case "B2": self.rotate_B_layer(2)
+                case "B'": self.rotate_B_layer(3)
+                case "R": self.rotate_R_layer()
+                case "R2": self.rotate_R_layer(2)
+                case "R'": self.rotate_R_layer(3)
+                case "L": self.rotate_L_layer()
+                case "L2": self.rotate_L_layer(2)
+                case "L'": self.rotate_L_layer(3)
 
     def print_cube(self):
         for face in 'ulfrdb':
@@ -110,9 +116,10 @@ class Cube():
         for row in reversed(self.state['b']):
             print(f'    {"".join(reversed(row))}')
         
-if __name__ == "__main__":
-    cube = Cube()
-    cube.apply_moves("R U R' U' R' F R F'")
-    cube.pprint_cube()
-    cube.apply_moves("F R' F' R U R U' R'")
-    cube.pprint_cube()
+# if __name__ == "__main__":
+#     cube = Cube()
+#     cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
+#     cube.pprint_cube()
+#     print("------------------")
+#     cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
+#     cube.pprint_cube()

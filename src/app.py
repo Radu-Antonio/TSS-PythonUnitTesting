@@ -67,7 +67,6 @@ class TimerScreen(Screen):
             self.start_stop_button.text = 'Stop'
         self.timer_started = not self.timer_started
 
- # testare functionala, structurala
     def update_timer(self, dt):
         self.time_seconds += 1
         minutes, seconds = divmod(self.time_seconds, 60)
@@ -75,7 +74,7 @@ class TimerScreen(Screen):
 
     def reset_timer(self, instance):
         if self.timer_started:
-            self.start_stop_timer(instance)  # Stop the timer if it's running
+            self.start_stop_timer(instance)  
         self.time_seconds = 0
         self.timer_display.text = '00:00'
 
