@@ -1,3 +1,5 @@
+import copy
+
 def replace_column(matrix, j, col):
     for i, val in enumerate(col):
         matrix[i][j] = val
@@ -75,6 +77,7 @@ class Cube():
 
     def apply_moves(self, moves): 
         # TODO: maybe implement wide moves / rotations / slice moves
+        cube_copy = copy.deepcopy(self.state)
         for move in moves.split():
             match move:
                 case "U": self.rotate_U_layer()
@@ -95,6 +98,10 @@ class Cube():
                 case "L": self.rotate_L_layer()
                 case "L2": self.rotate_L_layer(2)
                 case "L'": self.rotate_L_layer(3)
+                case _: 
+                    print("Invalid move inputted. All other moves were reverted.")
+                    self.state = cube_copy
+                    break
 
     def print_cube(self):
         for face in 'ulfrdb':
@@ -116,10 +123,10 @@ class Cube():
         for row in reversed(self.state['b']):
             print(f'    {"".join(reversed(row))}')
         
-# if __name__ == "__main__":
-#     cube = Cube()
-#     cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
-#     cube.pprint_cube()
-#     print("------------------")
-#     cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
-#     cube.pprint_cube()
+if __name__ == "__main__":
+    cube = Cube()
+    cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
+    cube.pprint_cube()
+    print("------------------")
+    cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
+    cube.pprint_cube()
