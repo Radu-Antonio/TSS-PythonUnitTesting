@@ -76,7 +76,6 @@ class Cube():
             replace_column(self.state['l'], 0, temp[::-1])
 
     def apply_moves(self, moves): 
-        # TODO: maybe implement wide moves / rotations / slice moves
         cube_copy = copy.deepcopy(self.state)
         for move in moves.split():
             match move:
@@ -115,18 +114,7 @@ class Cube():
             print(f'    {"".join(line)}')
         print()
         for i in range(3):
-            print("".join(self.state['l'][i]), "".join(self.state['f'][i]), "".join(self.state['r'][i]))
+            print("".join(self.state['l'][i]), "".join(self.state['f'][i]), "".join(self.state['r'][i]), "".join(self.state['b'][i]))
         print()
         for line in self.state['d']:
             print(f'    {"".join(line)}')
-        print()
-        for row in reversed(self.state['b']):
-            print(f'    {"".join(reversed(row))}')
-        
-if __name__ == "__main__":
-    cube = Cube()
-    cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
-    cube.pprint_cube()
-    print("------------------")
-    cube.apply_moves("R U R' U' R' F R2 U' R' U' R U R' F'")
-    cube.pprint_cube()

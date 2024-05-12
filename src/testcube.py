@@ -1,4 +1,4 @@
-from src.cube import Cube
+from cube import Cube
 import unittest
 
 class TestCube(unittest.TestCase):
@@ -157,3 +157,18 @@ class TestCube(unittest.TestCase):
         'd': [['w', 'w', 'w'], ['w', 'w', 'w'], ['w', 'w', 'w']]}
 
         self.assertEqual(sampleCube.state, emptyTestCube)
+
+if __name__ == "__main__":
+    t = TestCube()
+    t.testConstruction()
+    t.test_Rotate_Face_Clock_Wise_One_Time()
+    t.test_Rotate_Face_Clock_Wise_Two_Times()
+    t.test_Rotate_Face_Counter_ClockWise()
+    t.test_Rotate_U_Layer()
+    t.test_Rotate_D_Layer()
+    t.test_Rotate_R_Layer()
+    t.test_Rotate_L_Layer()
+    t.test_Rotate_F_Layer()
+    t.test_Rotate_B_Layer()
+    t.test_apply_moves()
+    t.test_invalid_move()

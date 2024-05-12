@@ -6,9 +6,9 @@ class Solver():
         c = cube.Cube()
         c.apply_moves(scramble)
         solution = []
-        # TODO
+        legal_moves = "U U2 U' D D2 D' F F2 F' B B2 B' R R2 R' L L2 L'".split()
         # cross
-        # f2l
+        # f2l 
         # oll
         # pll
         return " ".join(solution)
@@ -35,9 +35,3 @@ class Solver():
                 return self.solve_CFOP(scramble)
             case "kociemba":
                 return self.solve_kociemba(scramble)
-
-if __name__ == "__main__":
-    solver = Solver()
-    solution = solver.solve(scramble="R' B2 R2 D' L2 F2 U F2 D2 R2 D' B2 L' F2 D' R2 B R' D U2 B'")
-    # solution = solver.solve(scramble="R U R' U' R' F R2 U' R' U' R U R' F'")
-    print(solution)
