@@ -19,7 +19,7 @@ if __name__ == "__main__":
             solution = sol.solve(" ".join(sc))
             print(f"solution: {solution}")
         elif option == '2':
-            seed = int(input("Introduce a seed (0-9) for the scrambler: "))
+            seed = int(input("Introduce a seed (0-1000) for the scrambler: "))
             scram = scr.generate_scramble(seed)
             print(f'scramble generated: {scram}')
             ans = input("Do you want to solve the scramble ? (y/n)")
